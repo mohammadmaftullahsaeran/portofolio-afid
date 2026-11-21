@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-bg-canvas: #0A0A0C;
+  --color-bg-card: #131317;
+  --color-bg-card-hover: #1A1A20;
+  --color-surface: #131315;
+  --color-surface-container-lowest: #0e0e10;
+  --color-surface-container-low: #1c1b1d;
+  --color-surface-container: #201f21;
+  --color-surface-container-high: #2a2a2c;
+  --color-surface-container-highest: #353437;
+  --color-on-surface: #e5e1e4;
+  --color-on-surface-variant: #e8bcb6;
+  --color-primary: #ffb4aa;
+  --color-on-primary: #690003;
+  --color-primary-container: #e61919;
+  --color-on-primary-container: #fffbff;
+  --color-tertiary: #f6be39;
+  --color-crimson-bright: #E61919;
+  --color-crimson-deep: #8A0B0B;
+  --color-text-primary: #FFFFFF;
+  --color-text-muted: rgba(255, 255, 255, 0.72);
+  --color-text-dim: rgba(255, 255, 255, 0.45);
+  --color-border-subtle: rgba(255, 255, 255, 0.12);
+  --color-border-crimson: rgba(230, 25, 25, 0.4);
+  --color-amber-ambient: rgba(212, 160, 23, 0.14);
+
+  --font-display: "Anton", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #0A0A0C;
+    color: #e5e1e4;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    overscroll-behavior: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0A0C;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(230, 25, 25, 0.4);
+    border-radius: 9999px;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+@media print {
+  header,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #0A0A0C !important;
+    color: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
